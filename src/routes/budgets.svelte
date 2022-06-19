@@ -63,6 +63,8 @@
     clear()
   }
 
+  $: console.log(`$user`, $user)
+
   $: if (browser && !$user) goto('/')
 </script>
 <div>

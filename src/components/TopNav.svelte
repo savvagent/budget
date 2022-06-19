@@ -4,12 +4,7 @@
   import IconButton from '$components/IconButton.svelte'
   import { default as t } from '$stores/translate'
   import user from '$stores/user'
-  import supabase from '$utils/supabase'
-
-  const logout = async () => {
-    await supabase.auth.signOut()
-    goto('/')
-  }
+  import Avatar from '$components/Avatar.svelte'
 
 </script>
 
@@ -19,7 +14,9 @@
     <a href="/" class="text-lg">{$t('savvagent_budget')}</a>
   </div>
   {#if $user}
-    <button on:click={logout} class="mr-3">{$t('sign_out')}</button>
+    <div class="flex gap-1">
+      <Avatar />
+    </div>
   {:else}
     <a href="/auth" class="mr-3">{$t('sign_in')}</a>
   {/if}
